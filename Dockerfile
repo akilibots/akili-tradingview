@@ -1,7 +1,7 @@
 FROM python:3.6-alpine
 
 # To reduce build times when developing/uploading
-RUN apk add build-base && pip install Flask==2.1.0 pyOpenSSL==22.1.0 dydx-v3-python==1.9.0
+RUN apk add build-base libffi-dev && pip install Flask==2.0.3 pyOpenSSL==22.1.0 dydx-v3-python==1.9.1
 
 WORKDIR /app
 COPY . .
