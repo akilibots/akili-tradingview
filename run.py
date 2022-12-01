@@ -29,7 +29,7 @@ def limit_remote_addr():
         abort(403)
 
 
-@app.route('/place')
+@app.route('/place', methods = ['POST',])
 def place():
     data = request.json
     conf = config()
@@ -70,8 +70,8 @@ def place():
         side=aSide,
         order_type=ORDER_TYPE_LIMIT,
         post_only=False,
-        size=data['size'],
-        price=data['price'],
+        size=str(data['size']),
+        price=str(data['price']),
         limit_fee='0.1',
         expiration_epoch_seconds=data['till'],
     ).data['order']
@@ -79,7 +79,7 @@ def place():
     return order
 
 
-@app.route('/cancel')
+@app.route('/cancel', methods = ['POST',])
 def cancel():
     data = request.json
     conf = config()
