@@ -20,12 +20,14 @@ If you also don't have a TradingView account, please use my affiliate link for a
 ## Configuring the bot
 The bot picks up its configuration from an environment variable called config or a file named config.json under the config folder. More examples to follow how to use Docker to achieve this. A sample file is stored in the config folder that contains all options required.
 
-Place the name of the bot in the "name" section. This name  is displayed before each message on Telegram (if integrated) and when logging. Helps differentiate which bot is doing what especially when all the bots are sending their output to the same Telegram user.
+Place the name of the bot in the "name" section. This name is displayed before each message on Telegram (if integrated) and when logging. Helps differentiate which bot is doing what especially when all the bots are sending their output to the same Telegram user.
+
 ```
 "main":  {
 	"name":  "TV📺",
 },
 ```
+
 The dydx section contains all the blockchain details of your dydx account. Instructions on how to set up your DyDx settings on the bot can be found here https://github.com/akili-bots/.github/tree/main/profile
 ```
 "dydx":  {
@@ -43,3 +45,5 @@ Next is the Telegram section. To use, create a Telegram bot and input it's bot t
 	"bottoken":  ""
 }
 ```
+
+By using variables in the alert you can come up with very interesting scenarios for your start and stop triggers. https://www.tradingview.com/support/solutions/43000531021-how-to-use-a-variable-value-in-alert/

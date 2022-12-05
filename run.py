@@ -6,6 +6,7 @@ from dydx3.helpers.request_helpers import generate_now_iso
 from config import config
 
 app = Flask(__name__)
+orders = {}
 
 ALLOWED_IPS = [
     # Allow only TradingView webhook IPs
@@ -32,6 +33,10 @@ def limit_remote_addr():
 @app.route('/place', methods = ['POST',])
 def place():
     data = request.json
+    if data['ref'] in orders:
+        if data['multiple'] is False:
+            return None
+
     conf = config()
 
     xchange = Client(
@@ -64,7 +69,15 @@ def place():
     if data['side'] == 'sell':
         aSide = ORDER_SIDE_SELL
 
-    order = xchange.private.create_order(
+    for order in orders[data['reset']]:
+        try:
+            # order may have already been filled
+            xchange.private.cancel_order(orders[order]['id'])
+        except:
+            pass
+        del orders[order]
+
+    orders[data['ref']] = xchange.private.create_order(
         position_id=account['positionId'],
         market=data['market'],
         side=aSide,
@@ -76,7 +89,7 @@ def place():
         expiration_epoch_seconds=data['till'],
     ).data['order']
 
-    return order
+    return orders[data['ref']]
 
 
 @app.route('/cancel', methods = ['POST',])
@@ -96,9 +109,15 @@ def cancel():
         default_ethereum_address=conf['dydx']['default_ethereum_address'],
     )
 
-    order = xchange.private.cancel_order(data['id']).data['order']
+    for order in orders[data['orders']]:
+        try:
+            # order may have already been filled
+            xchange.private.cancel_order(orders[order]['id'])
+        except:
+            pass
+        del orders[order]
 
-    return order
+    return
 
 
 if __name__ == '__main__':
