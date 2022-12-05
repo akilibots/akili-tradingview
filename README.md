@@ -8,9 +8,9 @@
 
 akili-tradingview is a bot that provides an interface from TradingView into DyDx. This allows alarms set on trading view to trigger orders on DyDx opening possibilities such as channel, wedge, etc. and will support anything that a TradingView alarm can be set to.
 
+![Sample Channel Using akili-tradingview](https://raw.githubusercontent.com/akili-bots/.github/main/images/channel.png)
 
-
-Example use of this bot with trading view, longing on the bottom line and shorting on the top line as the price bounces within the channel. I extended the channel slowly everyday until the price crashed.
+Example use of this bot with trading view, longing on the bottom line and shorting on the top line as the price bounces within the channel. I extended the channel slowly everyday until the price dips on the last short.
 
 Again this bot is non opinionated, so be careful with any alarms that are not set to fire only once. Also please please please do not remove the ALLOWED_IPs from the code. These are set to allow only signals from TradingView's IP addresses. Signals are not authenticated (for now) so if you open this up anyone anywhere with your IP address and port and who has read this can send signals to your bot.
 
