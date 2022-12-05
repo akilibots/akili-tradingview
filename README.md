@@ -1,14 +1,14 @@
 # akili-tradingview
 
   
-
+[![stability-alpha](https://img.shields.io/badge/stability-alpha-f4d03f.svg)](https://github.com/mkenney/software-guides/blob/master/STABILITY-BADGES.md#alpha)
 [![Telegram](https://badges.aleen42.com/src/telegram.svg)](https://t.me/+9F0CZj8emLc2YTY0)
 
   
 
 akili-tradingview is a bot that provides an interface from TradingView into DyDx. This allows alarms set on trading view to trigger orders on DyDx opening possibilities such as channel, wedge, etc. and will support anything that a TradingView alarm can be set to.
 
-[pic here of trades]
+
 
 Example use of this bot with trading view, longing on the bottom line and shorting on the top line as the price bounces within the channel. I extended the channel slowly everyday until the price crashed.
 
