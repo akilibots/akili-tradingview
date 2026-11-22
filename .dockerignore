@@ -1,0 +1,14 @@
+.git
+.env
+.env.*
+!.env.example
+data/state.json
+data/exchange.json
+data/tokens.json
+data/*.lock
+data/*.tmp
+__pycache__
+.pytest_cache
+.venv
+
+data/*.sqlite3*

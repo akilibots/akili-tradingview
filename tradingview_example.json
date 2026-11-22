@@ -1,11 +1,10 @@
-{ 
-    "ref": "t12",
-    "reset" : [
-		"t13","t14","t15"
-		],
-    "market": "SOL-USD", 
-    "side": "buy", 
-    "price": 16, 
-    "size": 10,
-    "multiple": false
+{
+  "secret": "YOUR_WEBHOOK_SECRET",
+  "ref": "t12",
+  "reset": ["t13", "t14", "t15"],
+  "market": "SOL-USD",
+  "side": "buy",
+  "price": 16,
+  "size": 10,
+  "multiple": false
 }

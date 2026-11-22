@@ -1,0 +1,14 @@
+{
+  "main": {
+    "name": "TV"
+  },
+  "exchange": {
+    "network": "testnet",
+    "indexer": "https://indexer.v4testnet.dydx.exchange",
+    "websocket": "wss://indexer.v4testnet.dydx.exchange/v4/ws",
+    "node": "test-dydx-grpc.kingnodes.com:443",
+    "address": "YOUR_DYDX_CHAIN_ADDRESS",
+    "subaccount": 0,
+    "poll_seconds": 2
+  }
+}
